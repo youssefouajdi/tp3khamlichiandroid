@@ -1,6 +1,7 @@
 package com.example.tp3application;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
@@ -10,7 +11,6 @@ import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class Main2Activity extends AppCompatActivity {
     ListView liste;
@@ -26,17 +26,12 @@ public class Main2Activity extends AppCompatActivity {
         String[] Modules = {"Intelligence Artificille", "Réseaux Informatiques", "Développement web", "Administration systéme",
                 "Administration des Bases de données"};
 
-        ListAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, Modules);
+        ListAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_checked, Modules);
         liste.setAdapter(adapter);
-        liste.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        btn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v){
                 texte.setText(liste.getItemAtPosition(liste.getCheckedItemPosition()).toString());
             }
-        });
-        liste.setOnItemClickListener((parent,view,position,id){
-            Object itemmodule=liste.getItemAtPosition(position);
-            Toast.makeText(getApplicationContext(),"affiche :"+itemmodule,Toast.LENGTH_LONG).show();
         });
     }
 }
